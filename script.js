@@ -22,6 +22,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
             rate: rate
         };
         addWorkerToList(worker);
+        updateWorkerSelect(worker);
     }
 
     alert('Sign up successful!');
@@ -35,6 +36,14 @@ function addWorkerToList(worker) {
     workerList.appendChild(listItem);
 }
 
+function updateWorkerSelect(worker) {
+    const workerSelect = document.getElementById('workerSelect');
+    const option = document.createElement('option');
+    option.value = worker.email;
+    option.textContent = `${worker.name} - ${worker.rate} DKK/hour`;
+    workerSelect.appendChild(option);
+}
+
 // Pre-defined workers stored directly in the script
 const predefinedWorkers = [
     { name: "John Doe", email: "john@example.com", rate: "150" },
@@ -43,7 +52,38 @@ const predefinedWorkers = [
 ];
 
 function loadPredefinedWorkers() {
-    predefinedWorkers.forEach(worker => addWorkerToList(worker));
+    predefinedWorkers.forEach(worker => {
+        addWorkerToList(worker);
+        updateWorkerSelect(worker);
+    });
 }
 
 window.onload = loadPredefinedWorkers;
+
+document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const workerEmail = document.getElementById('workerSelect').value;
+    const hours = document.getElementById('hours').value;
+
+    if (workerEmail && hours) {
+        alert(`Proceeding to payment for ${hours} hours with worker ${workerEmail}.`);
+        // Implement real payment process with MobilePay here
+    } else {
+        alert('Please select a worker and enter number of hours.');
+    }
+});
+
+document.getElementById('sendMessage').addEventListener('click', function() {
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+    const message = chatInput.value.trim();
+
+    if (message) {
+        const messageElement = document.createElement('div');
+        messageElement.textContent = `You: ${message}`;
+        chatMessages.appendChild(messageElement);
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+    }
+});
