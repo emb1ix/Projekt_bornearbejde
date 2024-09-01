@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
     color: #333;
     overflow-x: hidden;
 }
@@ -32,7 +32,7 @@ header {
 
 .menu-icon {
     display: none;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: white;
     cursor: pointer;
 }
@@ -52,40 +52,29 @@ header {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
 .menu-items a:hover {
-    color: #FFD700;
+    color: #e2e2e2;
 }
 
-.hero-section {
-    background: linear-gradient(135deg, #007BFF, #00D084);
-    color: white;
+.hero-text {
     text-align: center;
     padding: 100px 20px;
-    background-size: cover;
-    background-position: center;
-    animation: hero-animation 1s ease-out;
+    background: linear-gradient(135deg, #007BFF 0%, #00BFAE 100%);
+    color: white;
 }
 
-.hero-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.hero-content h2 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.5rem;
+.animated-heading {
+    font-size: 3rem;
     margin: 0;
-    animation: fade-in 1s ease-in;
+    animation: fadeInUp 2s ease-out;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    animation: fade-in 1.5s ease-in;
+.animated-description {
+    font-size: 1.25rem;
+    animation: fadeInUp 2.5s ease-out;
 }
 
 .container {
@@ -158,7 +147,6 @@ footer {
     padding: 15px 0;
 }
 
-/* Animation */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -170,10 +158,10 @@ footer {
     }
 }
 
-@keyframes hero-animation {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -181,7 +169,7 @@ footer {
     }
 }
 
-/* Responsive design */
+/* Responsivt design */
 @media (max-width: 768px) {
     .menu-items {
         flex-direction: column;
