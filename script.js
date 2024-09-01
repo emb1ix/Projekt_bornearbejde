@@ -46,9 +46,9 @@ function updateWorkerSelect(worker) {
 
 // Pre-defined workers stored directly in the script
 const predefinedWorkers = [
-    { name: "John Doe", email: "john@example.com", rate: "150" },
-    { name: "Jane Smith", email: "jane@example.com", rate: "200" },
-    { name: "Max Mustermann", email: "max@example.com", rate: "175" }
+    { name: "Oliver Ejsing ", email: "john@example.com", rate: "150" },
+    { name: "Alfred Bøgel", email: "jane@example.com", rate: "200" },
+    { name: "Oliver Bech", email: "max@example.com", rate: "175" }
 ];
 
 function loadPredefinedWorkers() {
