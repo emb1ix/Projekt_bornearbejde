@@ -43,14 +43,7 @@ const predefinedWorkers = [
 ];
 
 function loadPredefinedWorkers() {
-    predefinedWorkers.forEach(worker => {
-        addWorkerToList(worker);
-    });
+    predefinedWorkers.forEach(worker => addWorkerToList(worker));
 }
 
-window.onload = function() {
-    loadPredefinedWorkers();
-    document.querySelectorAll('.container').forEach(container => {
-        container.style.opacity = 1;
-    });
-};
+window.onload = loadPredefinedWorkers;
