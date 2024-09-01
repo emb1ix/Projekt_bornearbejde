@@ -1,3 +1,4 @@
+/* Generelle stilarter */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -7,7 +8,54 @@ body {
     overflow-x: hidden;
 }
 
-header {
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #007BFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+    animation: fadeOut 2s ease-out forwards;
+}
+
+.splash-text {
+    text-align: center;
+    color: white;
+}
+
+.animated-heading {
+    font-size: 4rem;
+    font-weight: 700;
+    animation: textAnimation 3s ease-out;
+}
+
+.animated-description {
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-out;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #007BFF;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e2e2e2;
+    transform: scale(1.05);
+}
+
+#mainHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,24 +107,6 @@ header {
     color: #e2e2e2;
 }
 
-.hero-text {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #007BFF 0%, #00BFAE 100%);
-    color: white;
-}
-
-.animated-heading {
-    font-size: 3rem;
-    margin: 0;
-    animation: fadeInUp 2s ease-out;
-}
-
-.animated-description {
-    font-size: 1.25rem;
-    animation: fadeInUp 2.5s ease-out;
-}
-
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -90,6 +120,7 @@ header {
 
 h2 {
     color: #007BFF;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -102,7 +133,7 @@ label {
     display: inline-block;
 }
 
-input, select, button {
+input, select, textarea {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -111,20 +142,40 @@ input, select, button {
     outline: none;
 }
 
-input:focus, select:focus {
+input:focus, select:focus, textarea:focus {
     border-color: #007BFF;
 }
 
-button {
+.btn-primary {
     background-color: #007BFF;
     color: white;
-    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+.btn-primary:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }
 
 ul {
@@ -138,74 +189,6 @@ li {
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsivt design */
-@media (max-width: 768px) {
-    .menu-items {
-        flex-direction: column;
-        background-color: #007BFF;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        display: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .menu-items li {
-        margin: 10px 0;
-    }
-
-    #menu-toggle:checked + .menu-icon + .menu-items {
-        display: flex;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-}
-/* Udvidelse af tidligere CSS */
-#checkoutForm, #chatBox {
-    margin-bottom: 20px;
-}
-
-#checkoutForm {
-    display: flex;
-    flex-direction: column;
-}
-
-#workerSelect, #hours, #checkoutForm button {
-    margin-bottom: 15px;
 }
 
 #chatBox {
@@ -235,24 +218,45 @@ footer {
     resize: none;
 }
 
-#sendMessage {
-    padding: 10px;
+footer {
+    text-align: center;
+    padding: 15px;
     background-color: #007BFF;
     color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
 }
 
-#sendMessage:hover {
-    background-color: #0056b3;
+/* Animationer */
+@keyframes textAnimation {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-/* Tilføjelse af responsiv styling */
-@media (max-width: 768px) {
-    #chatBox {
-        height: auto;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .menu-items {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu-items {
+        display: flex;
+    }
+}
