@@ -3,375 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlavHub</title>
-    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/emb1ix/gopnik/main/youtube-music-icon-2048x2048-11gyian5.ico"/>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #2B2B2B; /* Mørk grå baggrund */
-            color: #E0E0E0; /* Lys grå tekst */
-            line-height: 1.6;
-            text-align: center;
-        }
-        /* Tilføjet styling for oversættelsesknappen */
-        #translate-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #FFFFFF;
-            color: #D32F2F;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1000;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        #translate-button:hover {
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #D32F2F; /* Rød baggrundsfarve */
-            color: #FFFFFF; /* Hvid tekstfarve */
-            padding: 20px;
-            position: relative; /* For at placere login-knappen */
-        }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: bold;
-        }
-        .header-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .logo {
-            max-width: 150px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 50%;
-            border: 3px solid #FFFFFF;
-        }
-        .login-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #FFFFFF;
-            color: #D32F2F;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .login-btn:hover {
-            background-color: #f5f5f5;
-        }
-        nav {
-            background-color: #212121; /* Sort baggrundsfarve */
-            padding: 15px 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        nav a {
-            color: #FFFFFF; /* Hvid tekstfarve */
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #D32F2F; /* Rød ved hover */
-        }
-        section {
-            padding: 20px;
-            background-color: #424242; /* Mørk grå baggrundsfarve */
-            margin-bottom: 20px;
-            border-radius: 5px;
-            color: #E0E0E0; /* Lys grå tekstfarve */
-        }
-        .bio {
-            font-size: 18px;
-            margin: 20px 0;
-        }
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .image-gallery img {
-            width: 100%;
-            height: 400px; /* Fixed height for all images */
-            object-fit: cover; /* Ensures image covers the set dimensions */
-            border: 3px solid #D32F2F; /* Rød kant om billederne */
-            cursor: pointer;
-        }
-        footer {
-            background-color: #D32F2F; /* Rød baggrundsfarve */
-            color: #FFFFFF; /* Hvid tekstfarve */
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .hidden {
-            display: none;
-        }
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-        /* Tilføjet styling for login-siden */
-        .login-container {
-            margin-top: 50px;
-        }
-        .login-form {
-            display: inline-block;
-            text-align: left;
-            background-color: #424242;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .login-form h2 {
-            margin-top: 0;
-        }
-        .login-form label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .login-form input {
-            width: 93%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
-        }
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #D32F2F;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .login-form button:hover {
-            background-color: #E53935;
-        }
-        /* Tilføjelse af styling for admin-knappen */
-        .admin-btn {
-            margin-top: 10px;
-            background-color: #424242; /* Samme farve som login-formularen */
-            color: #FFFFFF;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            cursor: pointer;
-        }
-        .admin-btn:hover {
-            background-color: #333333;
-        }
-        /* Styling til at vise brugernavn efter login */
-        #user-info {
-            position: absolute;
-            top: 20px;
-            right: 10px;
-            background-color: #FFFFFF;
-            color: #D32F2F;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-            display: none; /* Skjult som standard */
-        }
-    </style>
+    <title>Service Platform</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Oversættelsesknap -->
-    <button id="translate-button">Русский</button>
-
     <header>
-        <div class="header-container">
-            <img src="https://i.postimg.cc/3J2PRrf4/dbf851fb-5544-4f95-8d1f-267bd83f9f93.jpg" alt="Gopnik Logo" class="logo">
-            <h1>SlavHub</h1>
-        </div>
-        <a href="#login" class="login-btn">Login</a>
-        <p id="user-info"></p> <!-- Plads til brugernavn -->
-        <p>Velkommen til SlavHub - dit hub for Gopniks og russisk kultur!</p>
+        <h1>Service Platform</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#signup">Sign Up</a>
+        </nav>
     </header>
-    
-    <nav>
-        <a href="#" class="link" data-target="omos">Om Os</a>
-        <a href="#" class="link" data-target="billeder">Billeder</a>
-        <a href="#" class="link" data-target="videoer">Videoer</a>
-        <a href="#" class="link" data-target="kontakt">Kontakt Os</a>
-        <a href="#" class="link" data-target="historie">Om Gopniks</a>
-    </nav>
-    
-    <section id="omos">
-        <h2>Om Os</h2>
-        <p>Vi er dedikeret til at levere de seneste nyheder, billeder og videoer fra den russiske gopnik kultur. Vores passion for russisk kultur driver os til at levere det bedste indhold til vores brugere. Venligt hilsen de to danske gopniks</p>
+
+    <section id="home">
+        <h2>Welcome to the Service Platform</h2>
+        <p>Find reliable service providers for babysitting, lawn mowing, window cleaning, and more!</p>
     </section>
-    
-    <section id="billeder" class="hidden">
-        <h2>Billeder</h2>
-        <div class="image-gallery">
-            <div>
-                <img src="https://i.postimg.cc/Wb7pRtxj/Gopnik.jpg" alt="Gopnik 1">
+
+    <section id="signup">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <label for="userType">I am a:</label>
+            <select id="userType" required>
+                <option value="consumer">Consumer</option>
+                <option value="worker">Worker</option>
+            </select>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <div id="workerDetails" style="display: none;">
+                <label for="rate">Hourly Rate (DKK):</label>
+                <input type="number" id="rate">
             </div>
-            <div>
-                <img src="https://i.postimg.cc/50JkM9hd/Gopnik-2.jpg" alt="Gopnik 2">
-            </div>
-            <div>
-                <img src="https://i.postimg.cc/x8xsHvcn/Gopnik-3.jpg" alt="Gopnik 3">
-            </div>
-            <!-- Tilføj yderligere 9 billeder her -->
-            <div>
-                <img src="https://i.postimg.cc/R0VbkSkk/tmp-673f5ef6-2187-4734-8e3b-66d940cfaa5b.jpg" alt="Gopnik 4">
-            </div>
-        </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
     </section>
-    
-    <section id="videoer" class="hidden">
-        <h2>Videoer</h2>
-        <p>Velkommen til video-sektionen. Se de nyeste videoer af Gopniks her!</p>
+
+    <section id="workers">
+        <h2>Available Workers</h2>
+        <ul id="workerList"></ul>
     </section>
-    
-    <section id="kontakt" class="hidden">
-        <h2>Kontakt Os</h2>
-        <p>Har du spørgsmål eller vil du i kontakt med os? Send os en besked på slavhub48@gmail.com</p>
-    </section>
-    
-    <section id="historie" class="hidden">
-        <h2>Om Gopniks</h2>
-        <p>Den Russiske Gopnik kultur started i 1980’erne som betegnelse for unge Arbejderklasse mænd,
-            som hang ud på gaden og drak alkohol og røg smøger. Det fortsatte op gennem 1990’erne og 00’erne.
-            Gopniks findes stadig, især i de Slaviske lande som Polen, Ukraine og Rusland.
-            Den typiske beklædning for Gopniks er enten normalt Arbejdertøj og lædertøj, eller den klassiske Adidas Tracksuit.
-            De bor typisk i Soviet-boligblokke, men bruger det meste af tiden på gaden, hvor de spiser Семечки (ristede og saltede solsikkefrø)
-            og drikker Квас (en fermenterede rugbrødsdrik).</p>
-    </section>
-    
-    <section id="login" class="hidden">
-        <div class="login-container">
-            <form class="login-form">
-                <h2>Login</h2>
-                <label for="username">Brugernavn:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Adgangskode:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="button" id="login-btn">Login</button>
-            </form>
-            <button id="admin-btn" class="admin-btn">Admin Login</button>
-        </div>
-    </section>
-    
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'da',
-                includedLanguages: 'ru',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    
-        // Funktion til at udløse oversættelse ved klik på knappen
-        function translatePage() {
-            var translateElement = document.querySelector('.goog-te-combo');
-            if (translateElement) {
-                translateElement.value = 'ru';
-                translateElement.dispatchEvent(new Event('change'));
-            }
-        }
-    
-        document.getElementById('translate-button').addEventListener('click', translatePage);
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
-    <div id="google_translate_element" style="display: none;"></div>
-    
-    <script>
-        // Liste over brugere med brugernavn og adgangskode
-        const users = [
-            { username: "Alfred", password: "Kurwa" },
-            { username: "Oliver", password: "4565" },
-            { username: "Tester", password: "ur2stupid" },
-            // Tilføj flere brugere her
-        ];
-    
-        let currentUsername = ''; // Variable til at holde det aktuelle brugernavn
-    
-        document.querySelectorAll('.link').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                document.querySelectorAll('section').forEach(section => {
-                    section.classList.add('hidden');
-                });
-                const targetId = this.getAttribute('data-target');
-                document.getElementById(targetId).classList.remove('hidden');
-            });
-        });
-    
-        document.querySelector('.login-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            document.getElementById('login').classList.remove('hidden');
-        });
-    
-        document.getElementById('login-btn').addEventListener('click', function() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-    
-            // Find den bruger, der matcher det indtastede brugernavn og adgangskode
-            const user = users.find(user => user.username === username && user.password === password);
-    
-            if (user) {
-                alert("Login successful!");
-                currentUsername = user.username; // Opdater den nuværende bruger
-                document.querySelector('.login-btn').style.display = 'none'; // Skjul login-knappen
-                const userInfo = document.getElementById('user-info');
-                userInfo.textContent = `Velkommen, ${currentUsername}`; // Vis brugernavnet
-                userInfo.style.display = 'inline-block'; // Vis brugernavnet
-                document.querySelectorAll('section').forEach(section => {
-                    section.classList.add('hidden');
-                });
-                document.getElementById('omos').classList.remove('hidden'); // Vis startsiden eller en anden sektion
-            } else {
-                alert("Forkert brugernavn eller adgangskode!");
-            }
-        });
-    
-        document.getElementById('admin-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            let code = prompt("Indtast admin-koden:");
-            if (code === "4565") {
-                window.location.href = "https://github.com/emb1ix/gopnik/blob/main/index.html";
-            } else {
-                alert("Du er ikke Admin, så hold dig væk herfra!");
-            }
-        });
-    </script>
-    
+
+    <footer>
+        <p>&copy; 2024 Service Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
