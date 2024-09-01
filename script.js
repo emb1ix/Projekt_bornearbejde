@@ -1,22 +1,29 @@
+// Korrekte loginoplysninger
+const correctEmail = "oliverejsing11@gmail.com";
+const correctPassword = "4565";
+
+// Håndterer login-formularen
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Simuler login
+    // Hent værdier fra formularen
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
-    // Her kan du tilføje login validering hvis nødvendigt
-    if (email && password) {
+    // Kontroller loginoplysninger
+    if (email === correctEmail && password === correctPassword) {
+        // Hvis login er korrekt, skjul splash-skærmen og vis hovedindholdet
         document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
         setTimeout(() => {
             document.getElementById('splash').style.display = 'none';
             document.getElementById('mainHeader').style.display = 'flex';
         }, 2000); // match animation duration
     } else {
-        alert('Udfyld venligst alle felter.');
+        alert('Forkert email eller adgangskode. Prøv igen.');
     }
 });
 
+// Opdaterer knappen til at gå ind på hjemmesiden
 document.getElementById('enterSite').addEventListener('click', function() {
     document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
     setTimeout(() => {
