@@ -13,11 +13,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Kontroller loginoplysninger
     if (email === correctEmail && password === correctPassword) {
         // Hvis login er korrekt, skjul splash-skærmen og vis hovedindholdet
-        document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
-        setTimeout(() => {
-            document.getElementById('splash').style.display = 'none';
-            document.getElementById('mainHeader').style.display = 'flex';
-        }, 2000); // match animation duration
+        document.getElementById('splash').style.display = 'none';
+        document.getElementById('mainHeader').style.display = 'flex';
     } else {
         alert('Forkert email eller adgangskode. Prøv igen.');
     }
@@ -25,11 +22,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 // Opdaterer knappen til at gå ind på hjemmesiden
 document.getElementById('enterSite').addEventListener('click', function() {
-    document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
-    setTimeout(() => {
-        document.getElementById('splash').style.display = 'none';
-        document.getElementById('mainHeader').style.display = 'flex';
-    }, 2000); // match animation duration
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('mainHeader').style.display = 'flex';
 });
 
 document.getElementById('userType').addEventListener('change', function() {
