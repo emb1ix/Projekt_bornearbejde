@@ -5,135 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperHelp</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="splash">
-        <div class="splash-text">
-            <h1 class="animated-heading">SuperHelp</h1>
-            <p class="animated-description">Find pålidelige serviceudbydere</p>
+    <div id="splash" class="splash-screen">
+        <div class="splash-content">
+            <h1>SuperHelp</h1>
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Email:</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Adgangskode:</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="btn-primary">Log ind</button>
+                <input type="email" id="loginEmail" placeholder="Indtast din email" required>
+                <input type="password" id="loginPassword" placeholder="Indtast din adgangskode" required>
+                <button type="submit">Log ind</button>
             </form>
-            <button id="enterSite" class="btn-secondary">Kom ind</button>
         </div>
     </div>
 
-    <header id="mainHeader" style="display: none;">
-        <h1 class="logo">SuperHelp</h1>
-        <nav class="menu">
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">&#9776;</label>
-            <ul class="menu-items">
-                <li><a href="#home">Hjem</a></li>
-                <li><a href="#signup">Tilmeld</a></li>
-                <li><a href="#workers">Arbejdsfolk</a></li>
-                <li><a href="#checkout">Checkout</a></li>
-                <li><a href="#chat">Chat</a></li>
-                <li><a href="#profile">Profil</a></li>
-            </ul>
+    <header id="mainHeader" class="header">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav class="menu-items">
+            <a href="#home">Hjem</a>
+            <a href="#signup">Tilmeld</a>
+            <a href="#profile">Profil</a>
+            <a href="#chat">Chat</a>
         </nav>
     </header>
 
-    <section id="home" class="home-section">
-        <div class="hero-text">
-            <h2 class="animated-heading">Find pålidelige serviceudbydere</h2>
-            <p class="animated-description">Babysitting, græsslåning, vinduesvask og mere!</p>
-        </div>
-    </section>
+    <div class="container">
+        <section id="home" class="home-section">
+            <div class="hero-text">
+                <h2>Velkommen til SuperHelp</h2>
+                <p>Find de bedste hjælpere til dine opgaver</p>
+            </div>
+        </section>
 
-    <section id="signup" class="fade-in">
-        <div class="container">
-            <h2>Tilmeld</h2>
+        <section id="signup">
+            <h2>Tilmeld dig</h2>
             <form id="signupForm">
-                <div class="form-group">
-                    <label for="userType">Jeg er en:</label>
-                    <select id="userType" required>
-                        <option value="consumer">Forbruger</option>
-                        <option value="worker">Arbejdsmand</option>
-                    </select>
+                <label for="userType">Er du forbruger eller medarbejder?</label>
+                <select id="userType" required>
+                    <option value="" disabled selected>Vælg en mulighed</option>
+                    <option value="consumer">Forbruger</option>
+                    <option value="worker">Medarbejder</option>
+                </select>
+                <div id="workerDetails" style="display:none;">
+                    <input type="text" id="name" placeholder="Navn" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="text" id="rate" placeholder="Pris per time" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="name">Navn:</label>
-                    <input type="text" id="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
-                </div>
-
-                <div class="form-group" id="workerDetails" style="display: none;">
-                    <label for="rate">Timeløn (DKK):</label>
-                    <input type="number" id="rate">
-                </div>
-
-                <button type="submit" class="btn-primary">Tilmeld</button>
+                <button type="submit">Tilmeld</button>
             </form>
-        </div>
-    </section>
-
-    <section id="workers" class="fade-in">
-        <div class="container">
-            <h2>Tilgængelige Arbejdsfolk</h2>
             <ul id="workerList"></ul>
-        </div>
-    </section>
+        </section>
 
-    <section id="checkout" class="fade-in">
-        <div class="container">
-            <h2>Checkout</h2>
-            <form id="checkoutForm">
-                <div class="form-group">
-                    <label for="workerSelect">Vælg Arbejdsmand:</label>
-                    <select id="workerSelect" required>
-                        <option value="">-- Vælg en Arbejdsmand --</option>
-                    </select>
-                </div>
+        <section id="profile">
+            <h2>Profil</h2>
+            <button id="editProfile">Rediger Profil</button>
+            <div id="profileStats">
+                <!-- Stats vises her -->
+            </div>
+        </section>
 
-                <div class="form-group">
-                    <label for="hours">Antal Timer:</label>
-                    <input type="number" id="hours" required>
-                </div>
-
-                <button type="submit" class="btn-primary">Gå til Betaling</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="chat" class="fade-in">
-        <div class="container">
-            <h2>Chat med en Arbejdsmand</h2>
+        <section id="chat">
+            <h2>Chat med en medarbejder</h2>
             <div id="chatBox">
                 <div id="chatMessages"></div>
-                <textarea id="chatInput" placeholder="Skriv din besked..."></textarea>
-                <button id="sendMessage" class="btn-secondary">Send</button>
+                <textarea id="chatInput" placeholder="Skriv din besked her..."></textarea>
+                <button id="sendMessage">Send</button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="profile" class="fade-in">
-        <div class="container">
-            <h2>Din Profil</h2>
-            <div id="profileStats">
-                <!-- Statestikker vises her -->
-                <p id="profileName">Navn: <span id="displayName">John Doe</span></p>
-                <p id="profileEmail">Email: <span id="displayEmail">john@example.com</span></p>
-                <p id="profileRating">Bedømmelse: <span id="displayRating">4.5</span></p>
-                <p id="profileHours">Arbejdstimer: <span id="displayHours">20</span></p>
-                <button id="editProfile" class="btn-primary">Rediger Profil</button>
-            </div>
-        </div>
-    </section>
+        <section id="checkout">
+            <h2>Checkout</h2>
+            <form id="checkoutForm">
+                <label for="workerSelect">Vælg en medarbejder:</label>
+                <select id="workerSelect" required></select>
+                <input type="number" id="hours" placeholder="Antal timer" required>
+                <button type="submit">Betal</button>
+            </form>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 SuperHelp. Alle rettigheder forbeholdes.</p>
