@@ -3,18 +3,52 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #007BFF;
-    color: white;
-    padding: 15px 0;
-    text-align: center;
+    padding: 15px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav a {
-    margin: 0 20px;
+.logo {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-items li {
+    margin-left: 20px;
+}
+
+.menu-items a {
     color: white;
     text-decoration: none;
     font-weight: 500;
@@ -25,18 +59,14 @@ nav a {
     margin: 20px auto;
     padding: 20px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fade-in 1s forwards;
 }
 
 h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
+    color: #007BFF;
 }
 
 .form-group {
@@ -50,10 +80,11 @@ label {
 }
 
 input, select, button {
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     outline: none;
 }
 
@@ -80,9 +111,9 @@ ul {
 
 li {
     background-color: #f4f4f4;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -91,7 +122,41 @@ footer {
     color: white;
     text-align: center;
     padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivt design */
+@media (max-width: 768px) {
+    .menu-items {
+        flex-direction: column;
+        background-color: #007BFF;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        display: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-items li {
+        margin: 10px 0;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu-items {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
 }
