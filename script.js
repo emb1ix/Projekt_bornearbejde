@@ -33,14 +33,14 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         updateWorkerSelect(worker);
     }
 
-    alert('Sign up successful!');
+    alert('Tilmelding fuldført!');
     this.reset();
 });
 
 function addWorkerToList(worker) {
     const workerList = document.getElementById('workerList');
     const listItem = document.createElement('li');
-    listItem.textContent = `${worker.name} - ${worker.rate} DKK/hour`;
+    listItem.textContent = `${worker.name} - ${worker.rate} DKK/time`;
     workerList.appendChild(listItem);
 }
 
@@ -48,15 +48,15 @@ function updateWorkerSelect(worker) {
     const workerSelect = document.getElementById('workerSelect');
     const option = document.createElement('option');
     option.value = worker.email;
-    option.textContent = `${worker.name} - ${worker.rate} DKK/hour`;
+    option.textContent = `${worker.name} - ${worker.rate} DKK/time`;
     workerSelect.appendChild(option);
 }
 
-// Pre-defined workers stored directly in the script
+// Pre-definerede medarbejdere gemt direkte i scriptet
 const predefinedWorkers = [
-    { name: "Oliver Ejsing", email: "oliverejsing11@gmail.com", rate: "200" },
-    { name: "Alfred Bøgel", email: "ALfredbogel@gmail.com", rate: "15" },
-    { name: "Oliver Bech", email: "Oliverbech@gmail.com", rate: "75" }
+    { name: "John Doe", email: "john@example.com", rate: "150" },
+    { name: "Jane Smith", email: "jane@example.com", rate: "200" },
+    { name: "Max Mustermann", email: "max@example.com", rate: "175" }
 ];
 
 function loadPredefinedWorkers() {
@@ -75,10 +75,10 @@ document.getElementById('checkoutForm').addEventListener('submit', function(even
     const hours = document.getElementById('hours').value;
 
     if (workerEmail && hours) {
-        alert(`Proceeding to payment for ${hours} hours with worker ${workerEmail}.`);
-        // Implement real payment process with MobilePay here
+        alert(`Går videre til betaling for ${hours} timer med medarbejder ${workerEmail}.`);
+        // Implementer reel betalingsproces med MobilePay her
     } else {
-        alert('Please select a worker and enter number of hours.');
+        alert('Vælg en medarbejder og indtast antal timer.');
     }
 });
 
@@ -89,9 +89,13 @@ document.getElementById('sendMessage').addEventListener('click', function() {
 
     if (message) {
         const messageElement = document.createElement('div');
-        messageElement.textContent = `You: ${message}`;
+        messageElement.textContent = `Du: ${message}`;
         chatMessages.appendChild(messageElement);
         chatInput.value = '';
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Rul til bunden
     }
+});
+
+document.getElementById('editProfile').addEventListener('click', function() {
+    alert('Profiloplysninger kan redigeres her.');
 });
