@@ -1,3 +1,22 @@
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Simuler login
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Her kan du tilføje login validering hvis nødvendigt
+    if (email && password) {
+        document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
+        setTimeout(() => {
+            document.getElementById('splash').style.display = 'none';
+            document.getElementById('mainHeader').style.display = 'flex';
+        }, 2000); // match animation duration
+    } else {
+        alert('Udfyld venligst alle felter.');
+    }
+});
+
 document.getElementById('enterSite').addEventListener('click', function() {
     document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
     setTimeout(() => {
