@@ -194,3 +194,65 @@ footer {
         display: block;
     }
 }
+/* Udvidelse af tidligere CSS */
+#checkoutForm, #chatBox {
+    margin-bottom: 20px;
+}
+
+#checkoutForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#workerSelect, #hours, #checkoutForm button {
+    margin-bottom: 15px;
+}
+
+#chatBox {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#chatMessages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+#chatInput {
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#sendMessage {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+#sendMessage:hover {
+    background-color: #0056b3;
+}
+
+/* Tilføjelse af responsiv styling */
+@media (max-width: 768px) {
+    #chatBox {
+        height: auto;
+    }
+}
+
