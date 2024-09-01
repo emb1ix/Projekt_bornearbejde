@@ -13,23 +13,14 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Kontroller loginoplysninger
     if (email === correctEmail && password === correctPassword) {
         // Hvis login er korrekt, skjul splash-skærmen og vis hovedindholdet
-        document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
+        document.getElementById('splash').style.animation = 'fadeOut 1s ease-out forwards';
         setTimeout(() => {
             document.getElementById('splash').style.display = 'none';
             document.getElementById('mainHeader').style.display = 'flex';
-        }, 2000); // match animation duration
+        }, 1000); // match animation duration
     } else {
         alert('Forkert email eller adgangskode. Prøv igen.');
     }
-});
-
-// Håndterer knappen til at gå ind på hjemmesiden
-document.getElementById('enterSite').addEventListener('click', function() {
-    document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
-    setTimeout(() => {
-        document.getElementById('splash').style.display = 'none';
-        document.getElementById('mainHeader').style.display = 'flex';
-    }, 2000); // match animation duration
 });
 
 document.getElementById('userType').addEventListener('change', function() {
@@ -67,6 +58,7 @@ function addWorkerToList(worker) {
     const workerList = document.getElementById('workerList');
     const listItem = document.createElement('li');
     listItem.textContent = `${worker.name} - ${worker.rate} DKK/time`;
+    listItem.style.marginBottom = '0.5rem';
     workerList.appendChild(listItem);
 }
 
@@ -116,6 +108,7 @@ document.getElementById('sendMessage').addEventListener('click', function() {
     if (message) {
         const messageElement = document.createElement('div');
         messageElement.textContent = `Du: ${message}`;
+        messageElement.style.marginBottom = '1rem';
         chatMessages.appendChild(messageElement);
         chatInput.value = '';
         chatMessages.scrollTop = chatMessages.scrollHeight; // Rul til bunden
