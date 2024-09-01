@@ -37,10 +37,20 @@ function addWorkerToList(worker) {
 
 // Pre-defined workers stored directly in the script
 const predefinedWorkers = [
-    { name: "Oliver Ejsing", email: "oliverejsing11@gmail.com", rate: "100" },
-    { name: "Alfred Damn", email: "Alfreddamn@gmail.com", rate: "30" },
+    { name: "John Doe", email: "john@example.com", rate: "150" },
+    { name: "Jane Smith", email: "jane@example.com", rate: "200" },
     { name: "Max Mustermann", email: "max@example.com", rate: "175" }
 ];
 
 function loadPredefinedWorkers() {
-    predefined
+    predefinedWorkers.forEach(worker => {
+        addWorkerToList(worker);
+    });
+}
+
+window.onload = function() {
+    loadPredefinedWorkers();
+    document.querySelectorAll('.container').forEach(container => {
+        container.style.opacity = 1;
+    });
+};
