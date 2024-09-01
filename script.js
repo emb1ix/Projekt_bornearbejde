@@ -15,13 +15,40 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
     const email = document.getElementById('email').value;
     const rate = document.getElementById('rate').value;
 
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const newUser = {
+        type: userType,
+        name: name,
+        email: email,
+        rate: rate
+    };
+
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+
     if (userType === 'worker') {
-        const workerList = document.getElementById('workerList');
-        const listItem = document.createElement('li');
-        listItem.textContent = `${name} - ${rate} DKK/hour`;
-        workerList.appendChild(listItem);
+        addWorkerToList(newUser);
     }
 
     alert('Sign up successful!');
     this.reset();
 });
+
+function addWorkerToList(user) {
+    const workerList = document.getElementById('workerList');
+    const listItem = document.createElement('li');
+    listItem.textContent = `${user.name} - ${user.rate} DKK/hour`;
+    workerList.appendChild(listItem);
+}
+
+function loadWorkers() {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    users.forEach(user => {
+        if (user.type === 'worker') {
+            addWorkerToList(user);
+        }
+    });
+}
+
+window.onload = loadWorkers;
