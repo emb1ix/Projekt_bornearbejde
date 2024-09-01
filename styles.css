@@ -22,7 +22,7 @@ header {
 .logo {
     margin: 0;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
 }
 
@@ -32,7 +32,7 @@ header {
 
 .menu-icon {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: white;
     cursor: pointer;
 }
@@ -52,6 +52,40 @@ header {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.menu-items a:hover {
+    color: #FFD700;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #007BFF, #00D084);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    background-size: cover;
+    background-position: center;
+    animation: hero-animation 1s ease-out;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    animation: fade-in 1s ease-in;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: fade-in 1.5s ease-in;
 }
 
 .container {
@@ -124,6 +158,7 @@ footer {
     padding: 15px 0;
 }
 
+/* Animation */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -135,13 +170,24 @@ footer {
     }
 }
 
-/* Responsivt design */
+@keyframes hero-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     .menu-items {
         flex-direction: column;
         background-color: #007BFF;
         position: absolute;
-        top: 100%;
+        top: 60px;
         right: 0;
         width: 200px;
         display: none;
