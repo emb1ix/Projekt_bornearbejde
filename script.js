@@ -1,3 +1,11 @@
+document.getElementById('enterSite').addEventListener('click', function() {
+    document.getElementById('splash').style.animation = 'fadeOut 2s ease-out forwards';
+    setTimeout(() => {
+        document.getElementById('splash').style.display = 'none';
+        document.getElementById('mainHeader').style.display = 'flex';
+    }, 2000); // match animation duration
+});
+
 document.getElementById('userType').addEventListener('change', function() {
     const workerDetails = document.getElementById('workerDetails');
     if (this.value === 'worker') {
@@ -46,9 +54,9 @@ function updateWorkerSelect(worker) {
 
 // Pre-defined workers stored directly in the script
 const predefinedWorkers = [
-    { name: "Oliver Ejsing ", email: "john@example.com", rate: "150" },
-    { name: "Alfred Bøgel", email: "jane@example.com", rate: "200" },
-    { name: "Oliver Bech", email: "max@example.com", rate: "175" }
+    { name: "Oliver Ejsing", email: "oliverejsing11@gmail.com", rate: "200" },
+    { name: "Alfred Bøgel", email: "ALfredbogel@gmail.com", rate: "15" },
+    { name: "Oliver Bech", email: "Oliverbech@gmail.com", rate: "75" }
 ];
 
 function loadPredefinedWorkers() {
