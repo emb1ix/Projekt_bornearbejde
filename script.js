@@ -15,40 +15,32 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
     const email = document.getElementById('email').value;
     const rate = document.getElementById('rate').value;
 
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-
-    const newUser = {
-        type: userType,
-        name: name,
-        email: email,
-        rate: rate
-    };
-
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-
     if (userType === 'worker') {
-        addWorkerToList(newUser);
+        const worker = {
+            name: name,
+            email: email,
+            rate: rate
+        };
+        addWorkerToList(worker);
     }
 
     alert('Sign up successful!');
     this.reset();
 });
 
-function addWorkerToList(user) {
+function addWorkerToList(worker) {
     const workerList = document.getElementById('workerList');
     const listItem = document.createElement('li');
-    listItem.textContent = `${user.name} - ${user.rate} DKK/hour`;
+    listItem.textContent = `${worker.name} - ${worker.rate} DKK/hour`;
     workerList.appendChild(listItem);
 }
 
-function loadWorkers() {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.forEach(user => {
-        if (user.type === 'worker') {
-            addWorkerToList(user);
-        }
-    });
-}
+// Pre-defined workers stored directly in the script
+const predefinedWorkers = [
+    { name: "Oliver Ejsing", email: "oliverejsing11@gmail.com", rate: "100" },
+    { name: "Alfred Damn", email: "Alfreddamn@gmail.com", rate: "30" },
+    { name: "Max Mustermann", email: "max@example.com", rate: "175" }
+];
 
-window.onload = loadWorkers;
+function loadPredefinedWorkers() {
+    predefined
